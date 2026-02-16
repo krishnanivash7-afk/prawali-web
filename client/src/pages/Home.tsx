@@ -4,7 +4,6 @@ import { Footer } from "@/components/Footer";
 import { PhoneCall, Leaf, Sprout } from "lucide-react"; 
 import { Button } from "@/components/ui/button";
 
-// Temporary working image links (No local file errors)
 const product1 = "https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&q=80&w=800";
 const product2 = "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800";
 const product3 = "https://images.unsplash.com/photo-1517256011271-103ad7f3ffbd?auto=format&fit=crop&q=80&w=800";
@@ -21,20 +20,20 @@ export default function Home() {
   };
 
   const products = [
-    { img: product1, title: "Rice Husk Dinner Plate", price: "₹199", desc: "Sturdy and 100% natural." },
-    { img: product2, title: "Eco-Storage Container", price: "₹249", desc: "Keep tea and spices fresh." },
-    { img: product3, title: "Earth Coffee Cup", price: "₹149", desc: "Heat resistant and unbreakable." },
-    { img: product4, title: "Sustainable Tumbler", price: "₹299", desc: "Zero plastic, 100% style." }
+    { img: product1, title: "Rice Husk Plate", price: "₹199", desc: "Eco-friendly and natural." },
+    { img: product2, title: "Storage Container", price: "₹249", desc: "Airtight and sustainable." },
+    { img: product3, title: "Earth Coffee Cup", price: "₹149", desc: "Heat resistant material." },
+    { img: product4, title: "Sustainable Tumbler", price: "₹299", desc: "Zero plastic lifestyle." }
   ];
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] flex flex-col font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#FDFBF7] flex flex-col overflow-x-hidden">
       <Header />
       <main className="flex-grow pt-16">
-        <section className="relative py-20 px-4 text-center">
+        <section className="py-20 text-center px-4">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <h1 className="text-5xl font-black text-[#1a3c34] mb-4">From Parali to Pride.</h1>
-            <p className="mb-8 text-slate-600">Prawali transforms agricultural waste into premium essentials.</p>
+            <p className="mb-8 text-slate-600">Prawali transforms farm waste into premium essentials.</p>
             <div className="flex justify-center gap-4">
               <Button onClick={() => document.getElementById('product')?.scrollIntoView()} className="bg-[#065f46]">Shop Now</Button>
               <Button onClick={startRileyCall} variant="outline"><PhoneCall className="mr-2 h-5 w-5" /> Talk to AI</Button>
@@ -42,20 +41,18 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section id="product" className="py-20 max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((p, i) => (
-              <div key={i} className="bg-white rounded-3xl shadow-lg p-4 border">
-                <img src={p.img} alt={p.title} className="rounded-2xl mb-4 h-48 w-full object-cover" />
-                <h3 className="font-bold text-[#1a3c34]">{p.title}</h3>
-                <p className="text-slate-500 text-xs mb-4">{p.desc}</p>
-                <div className="flex justify-between items-center border-t pt-2">
-                  <span className="font-bold text-[#065f46]">{p.price}</span>
-                  <Button size="sm" className="bg-[#1a3c34]">Buy</Button>
-                </div>
+        <section id="product" className="py-20 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((p, i) => (
+            <div key={i} className="bg-white rounded-3xl shadow-lg p-4 border hover:shadow-2xl transition-all">
+              <img src={p.img} alt={p.title} className="rounded-2xl mb-4 h-48 w-full object-cover" />
+              <h3 className="font-bold text-[#1a3c34]">{p.title}</h3>
+              <p className="text-slate-500 text-xs mb-4">{p.desc}</p>
+              <div className="flex justify-between items-center border-t pt-2">
+                <span className="font-bold text-[#065f46]">{p.price}</span>
+                <Button size="sm" className="bg-[#1a3c34]">Buy</Button>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </section>
       </main>
       <Footer />
