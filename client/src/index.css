@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Premium Deep Green Palette */
+  --background: 0 0% 100%;      /* Pure White */
+  --foreground: 161 94% 15%;     /* Deep Forest Green #065f46 */
+  
+  --primary: 161 94% 20%;        /* Deep Green for main elements */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 161 94% 98%;      /* Very Light Green wash */
+  --secondary-foreground: 161 94% 15%;
+  
+  --muted: 161 10% 96%;          /* Neutral Light Grey */
+  --muted-foreground: 161 20% 40%;
+  
+  --accent: 161 94% 15%;         /* Deep Green accent */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 161 94% 15% / 0.1;
+  --input: 161 94% 15% / 0.1;
+  --ring: 161 94% 15%;
+
+  --radius: 0.5rem;
+  
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .eco-gradient {
+    background: linear-gradient(135deg, hsl(146 55% 45%), hsl(164 45% 25%));
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(146 55% 45%), hsl(164 45% 25%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
