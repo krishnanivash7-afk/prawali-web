@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { PhoneCall } from "lucide-react"; 
+import { PhoneCall, Leaf, Sprout } from "lucide-react"; 
 import { Button } from "@/components/ui/button";
 
-// इंटरनेट से चलने वाली फोटो (Build कभी फेल नहीं होगा)
 const product1 = "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=800";
 
 export default function Home() {
@@ -18,14 +17,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#FDFBF7] flex flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-grow pt-16 text-center">
-        <h1 className="text-5xl font-black text-[#1a3c34] my-8">Prawali: Waste to Pride</h1>
-        <div className="flex justify-center gap-4 mb-10">
-          <Button onClick={() => document.getElementById('product')?.scrollIntoView()} className="bg-[#065f46] rounded-full px-8">Shop Now</Button>
-          <Button onClick={startRileyCall} variant="outline" className="rounded-full px-8 border-[#065f46] text-[#065f46]"><PhoneCall className="mr-2 h-5 w-5" /> Talk to AI</Button>
+      <main className="flex-grow pt-20 text-center">
+        <h1 className="text-5xl font-black text-[#1a3c34] mb-4">From Parali to Pride.</h1>
+        <p className="text-[#eab308] font-bold mb-12">Powered by Startly Innovations™</p>
+        
+        <div className="flex justify-center gap-4 mb-16">
+          <Button onClick={() => document.getElementById('product')?.scrollIntoView()} className="bg-[#065f46] rounded-full px-8 h-12">Shop Now</Button>
+          <Button onClick={startRileyCall} variant="outline" className="rounded-full px-8 h-12 border-[#065f46] text-[#065f46]"><PhoneCall className="mr-2 h-5 w-5" /> Talk to AI</Button>
         </div>
-        <div id="product" className="max-w-7xl mx-auto px-6 pb-10">
-            <div className="bg-white rounded-3xl shadow-lg p-4 border max-w-sm mx-auto hover:shadow-2xl transition-all">
+
+        <div id="product" className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 pb-10">
+            <div className="bg-white rounded-3xl shadow-lg p-4 border">
               <img src={product1} alt="Eco Plate" className="rounded-2xl mb-4 h-48 w-full object-cover" />
               <h3 className="font-bold text-[#1a3c34]">Rice Husk Dinner Plate</h3>
               <div className="flex justify-between items-center mt-4 pt-2 border-t">
